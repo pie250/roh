@@ -8,8 +8,8 @@ A full-stack MERN application that allows users to register and track complaints
 
 | Service | URL |
 |---------|-----|
-| **Frontend** | https://ai-based-smart-complaint-management-upza.onrender.com |
-| **Backend API** | https://ai-based-smart-complaint-management-izs4.onrender.com |
+| **Frontend** |[ https://roh-8xj1.onrender.com |
+| **Backend API** |https://roh-1.onrender.com/ |
 
 ---
 
