@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+/* =========================
+   DESIGN TOKENS (DARK SAAS)
+========================= */
+@theme {
+  --color-primary: #3b82f6;
+  --color-secondary: #10b981;
+
+  /* DARK THEME BACKGROUND SYSTEM */
+  --color-background: #0b1220;
+  --color-surface: #111827;
+  --color-card: #0f172a;
+
+  --color-text: #e5e7eb;
+  --color-muted: #9ca3af;
+
+  --color-danger: #ef4444;
+  --color-warning: #f59e0b;
+}
+
+/* =========================
+   GLOBAL BASE STYLES
+========================= */
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================
+   GLASSMORPHISM (DARK ONLY)
+========================= */
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-dark {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* =========================
+   SCROLLBAR (DARK THEME)
+========================= */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b1220;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
