@@ -34,30 +34,85 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen relative overflow-hidden flex items-center justify-center px-4 py-10 bg-gradient-to-br from-gray-900 via-slate-900 to-black">
+    <div className="min-h-screen flex bg-black text-white overflow-hidden">
 
-      {/* Glow effects */}
-      <div className="absolute top-[-10%] right-[-10%] w-96 h-96 bg-blue-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-      <div className="absolute bottom-[-10%] left-[-10%] w-96 h-96 bg-cyan-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+      {/* Left Section */}
+      <div className="hidden lg:flex w-1/2 relative items-center justify-center bg-gradient-to-br from-indigo-950 via-black to-cyan-950 overflow-hidden">
 
-      {/* Signup Card */}
-      <div className="w-full max-w-md bg-white/10 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/10 overflow-hidden relative z-10">
+        {/* Background Shapes */}
+        <div className="absolute w-[500px] h-[500px] bg-cyan-500/20 rounded-full blur-3xl top-[-20%] left-[-10%] animate-pulse"></div>
 
-        <div className="p-8 md:p-10">
+        <div className="absolute w-[400px] h-[400px] bg-purple-500/20 rounded-full blur-3xl bottom-[-10%] right-[-10%] animate-pulse"></div>
 
-          {/* Heading */}
-          <div className="text-center mb-8">
-            <h2 className="text-4xl font-extrabold text-white mb-3 drop-shadow-2xl">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[length:30px_30px]"></div>
+
+        {/* Content */}
+        <div className="relative z-10 px-16">
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-r from-cyan-400 to-blue-500 mb-8 shadow-2xl shadow-cyan-500/40">
+            <span className="text-3xl font-bold">S</span>
+          </div>
+
+          <h1 className="text-6xl font-black leading-tight mb-6">
+            Smart <br />
+            Complaint <br />
+            System
+          </h1>
+
+          <p className="text-gray-300 text-lg leading-relaxed max-w-md">
+            Register complaints, track progress, and manage civic issues
+            through a modern AI-powered grievance platform.
+          </p>
+
+          <div className="mt-10 flex gap-4">
+            <div className="px-5 py-3 rounded-xl bg-white/10 backdrop-blur-lg border border-white/10">
+              ⚡ Fast Access
+            </div>
+
+            <div className="px-5 py-3 rounded-xl bg-white/10 backdrop-blur-lg border border-white/10">
+              🔒 Secure
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Right Section */}
+      <div className="w-full lg:w-1/2 flex items-center justify-center px-6 py-10 relative bg-[#050816]">
+
+        {/* Mobile Glow */}
+        <div className="absolute top-[-10%] right-[-10%] w-72 h-72 bg-cyan-500/20 rounded-full blur-3xl lg:hidden"></div>
+
+        {/* Card */}
+        <div className="w-full max-w-md relative z-10">
+
+          {/* Mobile Heading */}
+          <div className="lg:hidden text-center mb-10">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 shadow-lg shadow-cyan-500/30 mb-5">
+              <span className="text-2xl font-bold">S</span>
+            </div>
+
+            <h1 className="text-4xl font-black mb-2">
               Create Account
+            </h1>
+
+            <p className="text-gray-400">
+              Join the smart complaint platform
+            </p>
+          </div>
+
+          {/* Desktop Heading */}
+          <div className="hidden lg:block mb-10">
+            <h2 className="text-5xl font-black mb-3">
+              Sign Up
             </h2>
-            <p className="text-gray-300">
-              Join to register and manage your complaints
+
+            <p className="text-gray-400 text-lg">
+              Create your account to continue
             </p>
           </div>
 
           {/* Error */}
           {error && (
-            <div className="bg-red-500/10 border border-red-500/20 text-red-200 p-4 rounded-xl mb-6 text-sm text-center backdrop-blur-md">
+            <div className="mb-6 bg-red-500/10 border border-red-500/20 text-red-200 p-4 rounded-2xl text-sm backdrop-blur-xl">
               {error}
             </div>
           )}
@@ -65,48 +120,51 @@ const Signup = () => {
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
 
-            {/* Full Name */}
+            {/* Name */}
             <div>
-              <label className="block text-sm font-medium text-gray-200 mb-2">
+              <label className="block text-sm text-gray-300 mb-2">
                 Full Name
               </label>
+
               <input
                 type="text"
                 required
-                placeholder="John Doe"
+                placeholder="Enter your name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full px-4 py-3 bg-white/10 border border-white/10 rounded-xl text-white placeholder-gray-400 backdrop-blur-md focus:ring-2 focus:ring-blue-500 focus:border-blue-400 outline-none transition-all"
+                className="w-full h-14 px-5 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 transition-all"
               />
             </div>
 
             {/* Email */}
             <div>
-              <label className="block text-sm font-medium text-gray-200 mb-2">
-                Email
+              <label className="block text-sm text-gray-300 mb-2">
+                Email Address
               </label>
+
               <input
                 type="email"
                 required
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 bg-white/10 border border-white/10 rounded-xl text-white placeholder-gray-400 backdrop-blur-md focus:ring-2 focus:ring-blue-500 focus:border-blue-400 outline-none transition-all"
+                className="w-full h-14 px-5 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 transition-all"
               />
             </div>
 
             {/* Password */}
             <div>
-              <label className="block text-sm font-medium text-gray-200 mb-2">
+              <label className="block text-sm text-gray-300 mb-2">
                 Password
               </label>
+
               <input
                 type="password"
                 required
-                placeholder="Create a password"
+                placeholder="Create password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 bg-white/10 border border-white/10 rounded-xl text-white placeholder-gray-400 backdrop-blur-md focus:ring-2 focus:ring-blue-500 focus:border-blue-400 outline-none transition-all"
+                className="w-full h-14 px-5 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 transition-all"
               />
             </div>
 
@@ -114,22 +172,22 @@ const Signup = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/20 transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+              className="w-full h-14 rounded-2xl bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 text-white font-bold text-lg hover:scale-[1.02] hover:shadow-2xl hover:shadow-cyan-500/30 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              {loading ? "Creating account..." : "Sign Up"}
+              {loading ? "Creating Account..." : "Create Account"}
             </button>
           </form>
 
           {/* Footer */}
-          <p className="mt-8 text-center text-gray-300 text-sm">
+          <div className="mt-8 text-center text-gray-400">
             Already have an account?{" "}
             <Link
               to="/login"
-              className="text-blue-300 hover:text-blue-200 font-medium transition-colors"
+              className="text-cyan-400 hover:text-cyan-300 font-semibold transition-colors"
             >
-              Sign in here
+              Login
             </Link>
-          </p>
+          </div>
         </div>
       </div>
     </div>
