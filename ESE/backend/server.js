@@ -13,25 +13,72 @@ dotenv.config();
 
 const app = express();
 
+/* -----------------------
+   MIDDLEWARE
+------------------------ */
 app.use(express.json());
-app.use(cors({
-  origin: [process.env.CLIENT_URL, "http://localhost:5173"],
-  credentials: true
-}));
+
+/* -----------------------
+   CORS CONFIG (FIXED)
+------------------------ */
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://roh-1.onrender.com",
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // allow Postman / curl (no origin)
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      } else {
+        return callback(new Error("Blocked by CORS"));
+      }
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  })
+);
+
+/* ❌ DO NOT use app.options("*") in Express 5+ */
+/* Removed intentionally to avoid path-to-regexp crash */
+
+/* -----------------------
+   ROUTES
+------------------------ */
 
 app.use("/api/auth", authRoutes);
 app.use("/api/complaints", complaintRoutes);
 app.use("/api/ai", aiRoutes);
 
-// Root endpoint to check if API is running
+/* -----------------------
+   HEALTH CHECK
+------------------------ */
+
 app.get("/", (req, res) => {
   res.send("Smart Complaint Management System API is running...");
 });
 
+/* -----------------------
+   ERROR HANDLER
+------------------------ */
+
 app.use(errorHandler);
 
-connectDB().then(() => {
-  app.listen(process.env.PORT, () =>
-    console.log(`Server running on http://localhost:${process.env.PORT}`)
-  );
-});
+/* -----------------------
+   START SERVER
+------------------------ */
+
+connectDB()
+  .then(() => {
+    app.listen(process.env.PORT, () => {
+      console.log(`Server running on port ${process.env.PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("DB Connection Failed:", err.message);
+  });
