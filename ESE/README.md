@@ -8,8 +8,8 @@ A full-stack MERN application that allows users to register and track complaints
 
 | Service | URL |
 |---------|-----|
-| **Frontend** |[ https://roh-8xj1.onrender.com |
-| **Backend API** |https://roh-1.onrender.com/ |
+| **Frontend** | https://roh-1.onrender.com/ |
+| **Backend API** | https://roh-8xj1.onrender.com|
 
 ---
 
