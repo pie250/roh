@@ -307,5 +307,4 @@ AI analysis is triggered automatically when a complaint is submitted and the res
 ---
 
 ## 👨‍💻 Author
-
-**Yash Varshney**
+Rohit Parashar
