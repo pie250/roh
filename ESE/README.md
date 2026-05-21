@@ -151,25 +151,6 @@ Frontend runs at: `http://localhost:5173`
 | POST | `/api/auth/signup` | Register a new user, returns JWT token |
 | POST | `/api/auth/login` | Login with email & password, returns JWT token |
 
-**Signup Request Body:**
-```json
-{
-  "name": "Yash Varshney",
-  "email": "yash@gmail.com",
-  "password": "yash1234"
-}
-```
-
-**Login Request Body:**
-```json
-{
-  "email": "yash@gmail.com",
-  "password": "yash1234"
-}
-```
-
----
-
 ### 📋 Complaint APIs (Protected — Bearer Token Required)
 
 | Method | Endpoint | Description |
