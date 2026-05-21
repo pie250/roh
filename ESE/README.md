@@ -85,7 +85,7 @@ complaint-management/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/complaint-management.git
+git clone https://github.com/your-username/complaint-management
 cd complaint-management
 ```
 
